@@ -1,9 +1,9 @@
 {
   "name": "@jmendiara/atlas-api-client",
-  "version": "0.8.0-incubating",
+  "version": "0.8.1-incubating",
   "description": "Apache Atlas API client",
   "license": "Apache2.0",
-  "repository": "https://github.com/Telefonica/yot-bot",
+  "repository": "https://github.com/jmendiara/atlas-api-client",
   "author": "CDO",
   "keywords": [
   ],
@@ -23,11 +23,11 @@
   },
   "dependencies": {
     "bluebird": "^3.4.6",
-    "request": "^2.75.0",
-    "@types/bluebird": "^3.0.35",
-    "@types/request": "0.0.39"
+    "request": "^2.75.0"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.0.35",
+    "@types/request": "0.0.39",
     "nsp": "^2.6.1",
     "shx": "^0.2.2",
     "typescript": "^2.2.1"

@@ -1,0 +1,39 @@
+{
+  "name": "@jmendiara/atlas-api-client",
+  "version": "0.8.0-incubating",
+  "description": "Apache Atlas API client",
+  "license": "Apache2.0",
+  "repository": "https://github.com/Telefonica/yot-bot",
+  "author": "CDO",
+  "keywords": [
+  ],
+  "files": [
+    "lib"
+  ],
+  "main": "lib/api.js",
+  "scripts": {
+    "swagger:download": "wget http://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.2.2/swagger-codegen-cli-2.2.2.jar -O tools/swagger-codegen-cli-2.2.2.jar",
+    "swagger:generate": "java -Dio.swagger.parser.util.RemoteUrl.trustAll=true -jar tools/swagger-codegen-cli-2.2.2.jar generate -i http://atlas.apache.org/0.8.0-incubating/api/v2/ui/swagger.json -o src -l typescript-node -DmodelPropertyNaming=original",
+    "build": "npm run clean && npm run swagger:generate && npm run compile",
+    "clean": "shx rm -fR ./{src,lib}",
+    "compile": "tsc",
+    "prepublish": "npm run build",
+    "security": "nsp check",
+    "test": "npm run build && mocha -R spec 'lib/**/*.spec.js'"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "request": "^2.75.0",
+    "@types/bluebird": "^3.0.35",
+    "@types/request": "0.0.39"
+  },
+  "devDependencies": {
+    "nsp": "^2.6.1",
+    "shx": "^0.2.2",
+    "typescript": "^2.2.1"
+  },
+  "engines": {
+    "node": "~6.3.0"
+  },
+  "typings": "./lib/api.d.ts"
+}
